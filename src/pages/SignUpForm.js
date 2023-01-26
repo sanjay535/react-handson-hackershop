@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
 import DatePicker from "react-datepicker";
-import {adminDetailsData} from "./data.js"
+import "react-datepicker/dist/react-datepicker.css";
+import {adminDetailsData} from "./data.js";
 
 import "../App.css";
 class SignUpForm extends Component {
@@ -70,6 +71,12 @@ class SignUpForm extends Component {
     );
   }
 
+  handleDateChange=(date)=>{
+    const dob=new Date(date);
+    console.log('date=',dob);
+    this.setState({dob:date});
+  }
+
   render() {
     return (
       <div>
@@ -96,7 +103,48 @@ class SignUpForm extends Component {
             
             <div className="FormField">
               {/* Write code here to create Register Button */}
+              <label className="FormField__Label">Username</label>
+              <input className="FormField__Input" type="text" placeholder="Enter your username" />
             </div>
+
+            <div className="FormField">
+              {/* Write code here to create Register Button */}
+              <label className="FormField__Label">E-mail ID</label>
+              <input className="FormField__Input" type="text" placeholder="Enter email" />
+            </div>
+
+            <div className="FormField">
+              {/* Write code here to create Register Button */}
+              <label className="FormField__Label">password</label>
+              <input className="FormField__Input" type="text" placeholder="Enter password" />
+            </div>
+
+            <div className="FormField">
+              {/* Write code here to create Register Button */}
+              <label className="FormField__Label">Date of Birth</label>
+               <DatePicker
+                placeholderText="Enter date in format of dd/mm/yy"
+                wrapperClassName="wrapper-date-picker"
+                className="FormField__Input"
+                dateFormat="dd/MM/yyyy"
+                selected={this.state.dob}
+                onChange={(date) =>this.handleDateChange(date)}
+               />
+            </div>
+
+            <div className="FormField">
+              {/* Write code here to create Register Button */}
+              <label className="FormField__Label">Mobile No</label>
+              <input className="FormField__Input" type="text" placeholder="Enter Mobile Number" />
+            </div>
+
+            <div className="FormField">
+              {/* Write code here to create Register Button */}
+              <label className="FormField__Label">Location</label>
+              <input className="FormField__Input" type="text" placeholder="Please enter the location" />
+            </div>
+
+            <button className="FormField__Button">Register</button>
           </form>
         </div>
       </div>
