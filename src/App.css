@@ -35,7 +35,15 @@
   margin-bottom: 50px;
   text-align: center;
 }
-
+.nav-background{
+  background-color:#d9d9d9;
+}
+.grayColor{
+  color: #d9d9d9;
+}
+.grayColor:hover{
+  color: #66707d;
+}
 .navbar-nav {
   display: flex;
   flex-direction: column;

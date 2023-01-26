@@ -23,7 +23,43 @@ const Example = props => {
 
   return (
     <div>
-      {/*should have a Navbar brand, toggler and the NavItem (logout) should be linked to sign-in page */}
+      <Navbar {...props} className="nav-background" dark  expand={'lg'}>
+      <NavbarBrand href="/">
+          <img
+            alt="logo"
+            src={Medilogo}
+            style={{
+              height: 60,
+              width: 60
+            }}
+          />
+          <span style={{color:'#000'}}>DMRD</span>
+        </NavbarBrand>
+        <NavbarToggler onClick={toggle} />
+        <Collapse isOpen={isOpen} style={{display:'flex', justifyContent:'flex-end' }} navbar>
+          <Nav navbar>
+            <NavItem>
+              <NavLink href="/components/">Components</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink href="https://github.com/reactstrap/reactstrap">
+                GitHub
+              </NavLink>
+            </NavItem>
+            <UncontrolledDropdown nav inNavbar>
+              <DropdownToggle nav caret>
+                Options
+              </DropdownToggle>
+              <DropdownMenu right>
+                <DropdownItem>Option 1</DropdownItem>
+                <DropdownItem>Option 2</DropdownItem>
+                <DropdownItem divider />
+                <DropdownItem>Reset</DropdownItem>
+              </DropdownMenu>
+            </UncontrolledDropdown>
+          </Nav>
+        </Collapse>
+      </Navbar>
     </div>
   );
 };

@@ -85,9 +85,18 @@ if (this.canBeSubmitted()) {
 
           <form onSubmit={this.handleSubmit} className="FormFields">
             {/*Write code here to create labels and fields for username and password */}
+            
             <div className="FormField">
-             {/* Write code here to create a login button */}
+              {/* Write code here to create Register Button */}
+              <label className="FormField__Label">E-mail Address</label>
+              <input className="FormField__Input" type="text" placeholder="Enter your email" />
             </div>
+            <div className="FormField">
+              {/* Write code here to create Register Button */}
+              <label className="FormField__Label">password</label>
+              <input className="FormField__Input" type="text" placeholder="Enter your password" />
+            </div>
+             <button className="FormField__Button">Login</button>
           </form>
         </div>
       </div>
