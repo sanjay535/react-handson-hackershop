@@ -1,0 +1,43 @@
+{
+  "name": "hospital",
+  "version": "0.1.0",
+  "private": true,
+  "devDependencies": {
+    "enzyme": "^3.0.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "eslint": "^5.16.0",
+    "react-test-renderer": "^16.4.1"
+  },
+  "dependencies": {
+    "ajv": "^6.5.2",
+    "bootstrap": "^4.0.0",
+    "history": "^4.7.2",
+    "jest-junit-reporter": "1.1.0",
+    "jquery": "^3.3.1",
+    "popper.js": "^1.14.3",
+    "prop-types": "^15.5.10",
+    "react": "^16.4.1",
+    "react-bootstrap": "^0.32.1",
+    "react-datepicker": "^2.8.0",
+    "react-dom": "^16.4.1",
+    "react-redux": "^5.0.7",
+    "react-router": "3.2.0",
+    "react-router-dom": "^4.2.2",
+    "react-router-redux": "^5.0.0-alpha.9",
+    "react-scripts": "1.1.4",
+    "reactstrap": "^8.1.1",
+    "redux": "^3.7.2",
+    "redux-logger": "^3.0.6",
+    "redux-mock-store": "^1.2.1",
+    "redux-saga": "^0.16.0",
+    "redux-thunk": "^2.2.0"
+  },
+  "scripts": {
+    "start": "PORT=8000 react-scripts start",
+    "build": "react-scripts build",
+    "eject": "react-scripts eject",
+    "pretest": "npm install",
+    "test": "rm -rf ./unit.xml && CI=true ./node_modules/.bin/react-scripts test --verbose --env=jsdom --testResultsProcessor ./node_modules/jest-junit-reporter --coverage --collectCoverageFrom=src/**/*.{js,jsx}",
+    "lint": "eslint ./src -o eslint.xml -f junit; exit 0"
+  }
+}
