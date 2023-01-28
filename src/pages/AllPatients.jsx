@@ -7,6 +7,7 @@ class AllPatients extends Component {
     super(props);
     this.state = {
        //Write function to get the data of patients with the name as appointmentsList:
+       patientsList:[]
     };
     this.handleView = this.handleView.bind(this);
     this.handleEdit = this.handleEdit.bind(this);

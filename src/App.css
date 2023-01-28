@@ -36,14 +36,13 @@
   text-align: center;
 }
 .nav-background{
-  background-color:#d9d9d9;
+  background-color:rgb(191, 200, 212);
 }
-.grayColor{
-  color: #d9d9d9;
+
+.wrapper-date-picker{
+  width: 100%;
 }
-.grayColor:hover{
-  color: #66707d;
-}
+
 .navbar-nav {
   display: flex;
   flex-direction: column;
@@ -51,7 +50,6 @@
   margin-bottom: 0;
   list-style: none;
   float: left;
-
   color: rgb(191, 200, 212);
 }
 

@@ -5,6 +5,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import {adminDetailsData} from "./data.js";
 
 import "../App.css";
+import Button from "../components/Button.jsx";
 class SignUpForm extends Component {
   constructor(props) {
     super(props);
@@ -33,9 +34,8 @@ class SignUpForm extends Component {
   }
 
   handleSubmit(e) { 
-    
     e.preventDefault();
-    
+    console.log('submit data=',this.state);
     if (this.canBeSubmitted()) {
       adminDetailsData.add(
         this.state.uname,
@@ -45,9 +45,11 @@ class SignUpForm extends Component {
         this.state.mobileno,
         this.state.location
         );
-      this.setState({name: e.target.value});
+      // this.setState({name: e.target.value});
       this.props.history.push("/sign-in");
+      console.log('this.canBeSubmitted()=',this.props)
     }
+    
   }
   canBeSubmitted() {
     const {
@@ -64,7 +66,7 @@ class SignUpForm extends Component {
       uname.length > 4 &&
       email.length > 4 &&
       password.length > 4 &&
-      dob.length > 4 &&
+      dob.toString().length > 4 &&
       mobileno.length > 4 &&
       location.length > 4 
       
@@ -72,8 +74,6 @@ class SignUpForm extends Component {
   }
 
   handleDateChange=(date)=>{
-    const dob=new Date(date);
-    console.log('date=',dob);
     this.setState({dob:date});
   }
 
@@ -104,19 +104,19 @@ class SignUpForm extends Component {
             <div className="FormField">
               {/* Write code here to create Register Button */}
               <label className="FormField__Label">Username</label>
-              <input className="FormField__Input" type="text" placeholder="Enter your username" />
+              <input onChange={this.handleChange} name="uname" className="FormField__Input" type="text" placeholder="Enter your username" />
             </div>
 
             <div className="FormField">
               {/* Write code here to create Register Button */}
               <label className="FormField__Label">E-mail ID</label>
-              <input className="FormField__Input" type="text" placeholder="Enter email" />
+              <input onChange={this.handleChange} name="email" className="FormField__Input" type="text" placeholder="Enter email" />
             </div>
 
             <div className="FormField">
               {/* Write code here to create Register Button */}
               <label className="FormField__Label">password</label>
-              <input className="FormField__Input" type="text" placeholder="Enter password" />
+              <input onChange={this.handleChange} name="password" className="FormField__Input" type="text" placeholder="Enter password" />
             </div>
 
             <div className="FormField">
@@ -135,16 +135,17 @@ class SignUpForm extends Component {
             <div className="FormField">
               {/* Write code here to create Register Button */}
               <label className="FormField__Label">Mobile No</label>
-              <input className="FormField__Input" type="text" placeholder="Enter Mobile Number" />
+              <input onChange={this.handleChange} name="mobileno" className="FormField__Input" type="text" placeholder="Enter Mobile Number" />
             </div>
 
             <div className="FormField">
               {/* Write code here to create Register Button */}
               <label className="FormField__Label">Location</label>
-              <input className="FormField__Input" type="text" placeholder="Please enter the location" />
+              <input onChange={this.handleChange} name="location" className="FormField__Input" type="text" placeholder="Please enter the location" />
             </div>
-
-            <button className="FormField__Button">Register</button>
+            <Button
+             className="FormField__Button"
+            >Register</Button>
           </form>
         </div>
       </div>

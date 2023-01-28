@@ -7,20 +7,19 @@ import {
   NavbarBrand,
   Nav,
   NavItem,
-  NavLink,
   UncontrolledDropdown,
   DropdownToggle,
   DropdownMenu,
   DropdownItem
 } from "reactstrap";
-import { Link } from "react-router-dom";
 import { NavLink as ReactLink } from "react-router-dom";
+import "./Pages.css";
 
 const Example = props => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
-
+  const [activeNav, setActiveNav]=useState(false);
   return (
     <div>
       <Navbar {...props} className="nav-background" dark  expand={'lg'}>
@@ -39,22 +38,29 @@ const Example = props => {
         <Collapse isOpen={isOpen} style={{display:'flex', justifyContent:'flex-end' }} navbar>
           <Nav navbar>
             <NavItem>
-              <NavLink href="/components/">Components</NavLink>
+              <ReactLink className="nav-color" to="/addPatient">Add Patient</ReactLink >
             </NavItem>
             <NavItem>
-              <NavLink href="https://github.com/reactstrap/reactstrap">
-                GitHub
-              </NavLink>
+              <ReactLink className="nav-color" to="/allPatients">All Patients</ReactLink>
+            </NavItem>
+            <NavItem>
+              <ReactLink className="nav-color" to="/bookAppointment">Book Appointment</ReactLink>
+            </NavItem>
+            <NavItem>
+              <ReactLink className="nav-color" to="/allAppointments">All Appointments</ReactLink>
             </NavItem>
             <UncontrolledDropdown nav inNavbar>
-              <DropdownToggle nav caret>
-                Options
+              <DropdownToggle className="nav-color" nav caret>
+                User
               </DropdownToggle>
               <DropdownMenu right>
-                <DropdownItem>Option 1</DropdownItem>
-                <DropdownItem>Option 2</DropdownItem>
-                <DropdownItem divider />
-                <DropdownItem>Reset</DropdownItem>
+                <DropdownItem >
+                  <ReactLink style={{ textDecoration: 'none' }} to="/viewProfile" >View Profile</ReactLink> 
+               </DropdownItem>
+               <DropdownItem divider />
+               <DropdownItem>
+               <ReactLink style={{ textDecoration: 'none' }} to="/" >Logout</ReactLink> 
+               </DropdownItem>
               </DropdownMenu>
             </UncontrolledDropdown>
           </Nav>

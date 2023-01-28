@@ -1,0 +1,17 @@
+.nav-color{
+    color: rgba(0,0,0,0.5) !important;
+    text-decoration: none !important;
+    margin-top: -7px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.nav-color:hover{
+    color: rgba(0,0,0,0.75) !important;
+}
+.add-patient-buttons{
+    display: flex;
+    justify-content: space-around;
+}
+.add-patient-buttons:last-child{
+    margin-right: 100px;
+}
