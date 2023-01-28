@@ -5,6 +5,7 @@ import NavBar from "./NavBar.jsx";
 import "../App.css";
 import { patientDetailsData } from "./data.js";
 import Button from "../components/Button.jsx";
+import { CONSTANTS } from "./constants.js";
 
 class AddPatient extends Component {
   constructor(props) {
@@ -13,7 +14,7 @@ class AddPatient extends Component {
     this.state = {
       name: "",
       email: "",
-      dob: "",
+      dob: new Date(),
       location: "",
       mobile: ""
     };
@@ -34,8 +35,9 @@ class AddPatient extends Component {
   }
 
   handleSubmit(e) {
+    e.preventDefault();
+    console.log(this.state)
     if (this.canBeSubmitted()) {
-     
       alert("Patient Added successfully");
       patientDetailsData.add(
         this.state.name,
@@ -56,7 +58,7 @@ class AddPatient extends Component {
     return (
       name.length > 0 &&
       email.length > 0 &&
-      dob.length > 0 &&
+      dob.toString().length > 0 &&
       location.length > 0 &&
       mobile.length > 0
     );
@@ -69,10 +71,10 @@ class AddPatient extends Component {
   render() {
     const isEnabled = this.canBeSubmitted();
     const name = this.state.name;
-    const date=new Date();
+    const date=this.state.dob || new Date();
     return (
       <div>
-        <NavBar />
+        <NavBar activecomponent={CONSTANTS.ADD_PATIENT} />
         <div>
           <p
             style={{
@@ -106,7 +108,7 @@ class AddPatient extends Component {
                 wrapperClassName="wrapper-date-picker"
                 className="FormField__Input"
                 dateFormat="dd/MM/yyyy"
-                selected={this.state.dob}
+                selected={date}
                 onChange={(date) =>this.handleDateChange(date)}
                />
             </div>

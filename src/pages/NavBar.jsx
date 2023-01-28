@@ -13,13 +13,16 @@ import {
   DropdownItem
 } from "reactstrap";
 import { NavLink as ReactLink } from "react-router-dom";
+import { CONSTANTS } from "./constants";
 import "./Pages.css";
 
 const Example = props => {
   const [isOpen, setIsOpen] = useState(false);
-
+  const [activeNav, setActiveNav]=useState(props.activecomponent);
   const toggle = () => setIsOpen(!isOpen);
-  const [activeNav, setActiveNav]=useState(false);
+ 
+
+  console.log('activeNav=',activeNav);
   return (
     <div>
       <Navbar {...props} className="nav-background" dark  expand={'lg'}>
@@ -38,16 +41,16 @@ const Example = props => {
         <Collapse isOpen={isOpen} style={{display:'flex', justifyContent:'flex-end' }} navbar>
           <Nav navbar>
             <NavItem>
-              <ReactLink className="nav-color" to="/addPatient">Add Patient</ReactLink >
+              <ReactLink onClick={()=>setActiveNav(CONSTANTS.ADD_PATIENT)} activeClassName={(activeNav===CONSTANTS.ADD_PATIENT)?'active':''} className="nav-color" to="/addPatient">Add Patient</ReactLink >
             </NavItem>
             <NavItem>
-              <ReactLink className="nav-color" to="/allPatients">All Patients</ReactLink>
+              <ReactLink onClick={()=>setActiveNav(CONSTANTS.ALL_PATIENTS)} activeClassName={(activeNav===CONSTANTS.ALL_PATIENTS)?'active':''}  className="nav-color" to="/allPatients">All Patients</ReactLink>
             </NavItem>
             <NavItem>
-              <ReactLink className="nav-color" to="/bookAppointment">Book Appointment</ReactLink>
+              <ReactLink onClick={()=>setActiveNav(CONSTANTS.BOOK_APPOINTMENT)} activeClassName={(activeNav===CONSTANTS.BOOK_APPOINTMENT)?'active':''}  className="nav-color" to="/bookAppointment">Book Appointment</ReactLink>
             </NavItem>
             <NavItem>
-              <ReactLink className="nav-color" to="/allAppointments">All Appointments</ReactLink>
+              <ReactLink onClick={()=>setActiveNav(CONSTANTS.ALL_APPOINTMENTS)} activeClassName={(activeNav===CONSTANTS.ALL_APPOINTMENTS)?'active':''}  className="nav-color" to="/allAppointments">All Appointments</ReactLink>
             </NavItem>
             <UncontrolledDropdown nav inNavbar>
               <DropdownToggle className="nav-color" nav caret>
@@ -59,7 +62,7 @@ const Example = props => {
                </DropdownItem>
                <DropdownItem divider />
                <DropdownItem>
-               <ReactLink style={{ textDecoration: 'none' }} to="/" >Logout</ReactLink> 
+               <ReactLink style={{ textDecoration: 'none' }} to="/sign-in" >Logout</ReactLink> 
                </DropdownItem>
               </DropdownMenu>
             </UncontrolledDropdown>

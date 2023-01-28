@@ -3,6 +3,7 @@ import NavBar from "./NavBar.jsx";
 import "../App.css";
 import { appDetailsData } from "./data";
 import { patientDetailsData } from "./data";
+import { CONSTANTS } from "./constants.js";
 
 class BookAppointment extends Component {
   constructor() {
@@ -85,7 +86,7 @@ class BookAppointment extends Component {
 
     return (
       <div>
-        <NavBar />
+        <NavBar activecomponent={CONSTANTS.BOOK_APPOINTMENT}/>
         <div>
           <p
             style={{
@@ -108,8 +109,8 @@ class BookAppointment extends Component {
               <label className="FormField__Label" htmlFor="name">
                 Slots
               </label>
-              <select id="dropdown" class = "DropDowns" ref = {(input)=> this.slots = input}>
-                <header>select slots </header>
+              <select id="dropdown" className= "DropDowns" ref = {(input)=> this.slots = input}>
+                
                 <option value="N/A">N/A</option>
                 <option value="10-11 AM">10-11 AM</option>
                 <option value="1-2 PM">1-2 PM</option>

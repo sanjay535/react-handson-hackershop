@@ -15,3 +15,6 @@
 .add-patient-buttons:last-child{
     margin-right: 100px;
 }
+.active{
+    color: rgba(0,0,0,0.9) !important;
+}

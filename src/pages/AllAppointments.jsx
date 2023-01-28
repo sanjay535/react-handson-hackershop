@@ -3,12 +3,14 @@ import NavBar from "./NavBar.jsx";
 import "../App.css";
 import AddPatient from "./AddPatient.jsx";
 import { appDetailsData } from "./data";
+import { CONSTANTS } from "./constants.js";
 
 class AllAppointments extends Component {
   constructor() {
     super();
     this.state = {
        //Write function to get the appointment details with the name as appointmentsList:
+       appointmentsList:appDetailsData.getData()
     };
     this.handleView = this.handleView.bind(this);
     this.handleEdit = this.handleEdit.bind(this);
@@ -37,7 +39,7 @@ class AllAppointments extends Component {
     
     return (
       <div style={{ height: "100%" }}>
-        <NavBar />
+        <NavBar activecomponent={CONSTANTS.ALL_APPOINTMENTS}/>
 
         <form style={{ display: "flex", height: "100%", alignItems: "center" }}>
           {appointmentsList.length === 0 ? (
@@ -60,7 +62,10 @@ class AllAppointments extends Component {
                 </p>
               </div>
               {appointmentsList.map((appointment,index) => (
-              {/*Write code here to list the appointments along with the buttons*/}
+              <div>
+                {appointment.name } and {appointment.slot}
+              </div>
+              
               ))}
             </div>
           )}

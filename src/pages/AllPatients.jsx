@@ -2,12 +2,13 @@ import React, { Component } from "react";
 import NavBar from "./NavBar.jsx";
 import "../App.css";
 import { patientDetailsData } from "./data.js";
+import { CONSTANTS } from "./constants.js";
 class AllPatients extends Component {
   constructor(props) {
     super(props);
     this.state = {
        //Write function to get the data of patients with the name as appointmentsList:
-       patientsList:[]
+       patientsList:patientDetailsData.getData()
     };
     this.handleView = this.handleView.bind(this);
     this.handleEdit = this.handleEdit.bind(this);
@@ -34,14 +35,16 @@ class AllPatients extends Component {
     
     return (
       <div style={{ height: "100%" }}>
-          <NavBar />
+          <NavBar activecomponent={CONSTANTS.ALL_PATIENTS}/>
         <form style={{ display: "flex", height: "100%", alignItems: "center" }}>
           {patientsList.length === 0 ? (
             <h1 style={{ textAlign: "center", flexGrow: "1" }}>
               No Patients Found
             </h1>
           ) : (
-          {/*Write code here to create all patients details*/}
+          patientsList.map(patient=><div key={patient.id}>
+            {patient.name}
+          </div>)
           )}
         </form>
       </div>
