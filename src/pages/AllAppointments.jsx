@@ -65,16 +65,16 @@ class AllAppointments extends Component {
                 </p>
               </div>
               {appointmentsList.map((appointment) => (
-              <div key={appointment.appId}>
-              <div className="all-patient-background">
-                <div>{appointment.name}, {appointment.slot}</div>
-                <div className="all-patient-Buttons">
-                  <Button onClick={()=>this.handleView(appointment.appId)} className="all-patient-Button">View</Button>
-                  <Button onClick={()=>this.handleEdit(appointment.appId)} className="all-patient-Button">Edit</Button>
-                  <Button onClick={()=>this.handleDelete(appointment.appId)} className="all-patient-Button">Delete</Button>                     
+                 <div key={appointment.appId}>
+                  <div className="all-patient-background">
+                    <div>{appointment.name}, {appointment.slot}</div>
+                    <div className="all-patient-Buttons">
+                      <Button onClick={()=>this.handleView(appointment.appId)} className="all-patient-Button">View</Button>
+                      <Button onClick={()=>this.handleEdit(appointment.appId)} className="all-patient-Button">Edit</Button>
+                      <Button onClick={()=>this.handleDelete(appointment.appId)} className="all-patient-Button">Delete</Button>                     
+                    </div>
+                  </div>
                 </div>
-              </div>
-          </div>
               
               ))}
             </div>

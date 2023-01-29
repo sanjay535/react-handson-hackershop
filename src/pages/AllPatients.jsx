@@ -47,20 +47,36 @@ class AllPatients extends Component {
               No Patients Found
             </h1>
           ) : 
-            <div className="all-patient-details">
-              {patientsList.map(patient=>
-                <div key={patient.id}>
-                  <div className="all-patient-background">
-                    <div>{patient.name}</div>
-                    <div className="all-patient-Buttons">
-                      <Button onClick={()=>this.handleView(patient.id)} className="all-patient-Button">View</Button>
-                      <Button onClick={()=>this.handleEdit(patient.id)} className="all-patient-Button">Edit</Button>
-                      <Button onClick={()=>this.handleDelete(patient.id)} className="all-patient-Button">Delete</Button>                     
+          <div style={{ height: "100%", width: "100%" }}>
+            <div>
+              <p
+                style={{
+                  textAlign: "center",
+                  paddingBottom: "10px",
+                  paddingTop: "10px",
+                  fontSize: "2em",
+                  color: "Slate Blue"
+                }}
+              >
+                List of All Patients
+              </p>
+            </div>
+              <div className="all-patient-details">
+                {patientsList.map(patient=>
+                  <div key={patient.id}>
+                    <div className="all-patient-background">
+                      <div>{patient.name}</div>
+                      <div className="all-patient-Buttons">
+                        <Button onClick={()=>this.handleView(patient.id)} className="all-patient-Button">View</Button>
+                        <Button onClick={()=>this.handleEdit(patient.id)} className="all-patient-Button">Edit</Button>
+                        <Button onClick={()=>this.handleDelete(patient.id)} className="all-patient-Button">Delete</Button>                     
+                      </div>
                     </div>
-                  </div>
-              </div>
-              )}
-          </div>}
+                </div>
+                )}
+            </div>
+          </div>
+          }
         </form>
       </div>
     );
