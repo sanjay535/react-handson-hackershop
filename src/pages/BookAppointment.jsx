@@ -1,9 +1,11 @@
 import React, { Component } from "react";
+import DatePicker from 'react-datepicker';
 import NavBar from "./NavBar.jsx";
 import "../App.css";
 import { appDetailsData } from "./data";
 import { patientDetailsData } from "./data";
 import { CONSTANTS } from "./constants.js";
+import Button from "../components/Button.jsx";
 
 class BookAppointment extends Component {
   constructor() {
@@ -46,8 +48,8 @@ class BookAppointment extends Component {
     if (this.canBeSubmitted()) {
       e.preventDefault();
      
-      let slot = this.slots.value;
-      if(slot === "N/A" || this.state.name === "N/A")
+      const {slot, name}=this.state;
+      if(slot === "N/A" || name === "N/A")
       {
         alert("Please select slot and name values other than N/A")
       }
@@ -65,6 +67,7 @@ class BookAppointment extends Component {
     }
    }
   }
+
   handleCancel(e) {
     this.props.history.push("/allAppointments");
   }
@@ -74,16 +77,20 @@ class BookAppointment extends Component {
     return (
        name.length > 4 &&
       disease.length > 0 &&
-      appdate.length > 0 &&
+      appdate.toString().length > 0 &&
       description.length > 0
     );
   }
+
+  handleDateChange=(date)=>{
+    this.setState({appdate:date});
+  }
+
   render() {
     const names = patientDetailsData.getName();
     
     const isEnabled = this.canBeSubmitted();
-    const date=new Date();
-
+    console.log('this.slots=',this.state);
     return (
       <div>
         <NavBar activecomponent={CONSTANTS.BOOK_APPOINTMENT}/>
@@ -103,13 +110,38 @@ class BookAppointment extends Component {
           <form onSubmit={this.handleSubmit} className="FormFields">
             <div className="FormField">
               {/*Write code here to create dropdown to list the name of patients, if no patients are avilable then it should be N/A */}
+              <label className="FormField__Label" htmlFor="name">
+                Name of the Patients
+              </label>
+              <select id="dropdown" className= "DropDowns" name="name" onChange={this.handleChange}>
+                
+                <option value="N/A">N/A</option>
+                <option value="Sanjay Gautam">Sanjay Gautam</option>
+                <option value="Raju Ahirwar">Raju Ahirwar</option>
+              </select>
+            </div>
+            <div className="FormField">
+              <label className="FormField__Label">Disease</label>
+              <input onChange={this.handleChange} name="disease" className="FormField__Input" type="text" placeholder="Enter Disease" />
+            </div>
+
+            <div className="FormField">
+              <label className="FormField__Label">Date</label>
+               <DatePicker
+                placeholderText="dd/mm/yy"
+                wrapperClassName="wrapper-date-picker"
+                className="FormField__Input"
+                dateFormat="dd/MM/yyyy"
+                selected={this.state.appdate}
+                onChange={(date) =>this.handleDateChange(date)}
+               />
             </div>
             {/*Write code here to create date and disease labels */}
             <div className="FormField">
               <label className="FormField__Label" htmlFor="name">
                 Slots
               </label>
-              <select id="dropdown" className= "DropDowns" ref = {(input)=> this.slots = input}>
+              <select id="dropdown" className= "DropDowns" name="slot" onChange={this.handleChange}>
                 
                 <option value="N/A">N/A</option>
                 <option value="10-11 AM">10-11 AM</option>
@@ -119,8 +151,24 @@ class BookAppointment extends Component {
               </select>
     
             </div>
+
+            <div className="FormField">
+              <label className="FormField__Label">Description</label>
+              <input onChange={this.handleChange} name="description" className="FormField__Input" type="text" placeholder="Enter Description" />
+            </div>
            {/* Write code here to create description field,submit and cancel buttons */}
+           <div className="add-patient-buttons"> 
+            <Button 
+             type='submit'
+             className="FormField__Button"
+            >Register</Button>
             
+             <Button
+             onClick={this.handleCancel}
+             type='button'
+             className="FormField__Button"
+            >Cancel</Button>
+            </div> 
               
           </form>
         </div>
