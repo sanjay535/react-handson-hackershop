@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import NavBar from "./NavBar";
 import {appDetailsData} from "./data.js"
+import Button from "../components/Button";
 
 class ViewAppointment extends Component {
   constructor(props) {
@@ -21,6 +22,7 @@ class ViewAppointment extends Component {
    if(!appointment) {
      return <h1>No appointments found</h1>
    }
+   const date=new Date(appointment.appdate);
     return (
       <div>
         <NavBar />
@@ -39,12 +41,35 @@ class ViewAppointment extends Component {
           </div>
         </div>
         <div className="FormCenter">
-        <form onSubmit={this.handleSubmit} className="FormFields">
-            {/* Write code here to display name, appdate, slot, description and disease */}
-            <div className="FormField">
-              {/*Write code here to create a close button */}
+        <div className="FormFields">
+        <div className="FormFields">
+              {/* Write code here to create fields for name, disease,appdate, slot and mobile*/}
+              <div className="view-patient-row">
+                <div>Name</div>&nbsp;&ndash;&nbsp;
+                <div>{appointment.name}</div>
+              </div>
+              <div className="view-patient-row">
+                <div>Disease</div>&nbsp;&ndash;&nbsp;
+                <div>{appointment.disease}</div>
+              </div>
+              <div className="view-patient-row">
+                <div>Date</div>&nbsp;&ndash;&nbsp;
+                <div>{`${date.getDate()}/${date.getMonth()+1}/${date.getFullYear()}`}</div>
+              </div>
+              <div className="view-patient-row">
+                <div>Slot</div>&nbsp;&ndash;&nbsp;
+                <div>{appointment.slot}</div>
+              </div>
+              <div className="view-patient-row">
+                <div>Description</div>&nbsp;&ndash;&nbsp;
+                <div>{appointment.description}</div>
+              </div>
+              <div className="FormField">
+                {/*Write code here to create close button */}
+                <Button onClick={this.handleClose} className="FormField__Button">Close</Button>
+              </div>
             </div>
-          </form>
+          </div>
         </div>
       </div>
     );
