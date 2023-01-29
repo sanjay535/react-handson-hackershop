@@ -26,9 +26,11 @@ class AllAppointments extends Component {
     this.props.history.push(`/editAppointment/${appId}`);
   }
   handleDelete(appId){
-    appDetailsData.deleteAppointment(appId);
-    this.setState({appointmentsList:appDetailsData.getData()
-    });
+    if(window.confirm("Are you sure you want to deleting this Appointment")===true){
+      appDetailsData.deleteAppointment(appId);
+      this.setState({appointmentsList:appDetailsData.getData()
+      });
+    }
     
   }
   appsList() {
