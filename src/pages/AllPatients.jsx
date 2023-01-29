@@ -26,12 +26,13 @@ class AllPatients extends Component {
     
     this.props.history.push(`/editPatient/${id}`);
   }
-  handleDelete(e) {
-    
-    patientDetailsData.deletePatient(e);
-    this.setState({
-      patientsList: patientDetailsData.getData(),
-    })
+  handleDelete(id) {
+    if(window.confirm('Are you sure of deleting ')===true){
+      patientDetailsData.deletePatient(id);
+      this.setState({
+        patientsList: patientDetailsData.getData(),
+      })
+    }
   }
 
   render() {
