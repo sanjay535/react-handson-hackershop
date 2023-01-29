@@ -8,34 +8,18 @@ import './Pages.css';
 class AllPatients extends Component {
   constructor(props) {
     super(props);
+    // patientDetailsData.add("Sanjay Gautam","sanjaykumargautam535@gmail.com", "2023-01-28T13:37:25.983Z", "India", "8839773038");
+    // patientDetailsData.add("Rahul Saxena","sanjaykumargautam535@gmail.com", "2023-01-28T13:37:25.983Z", "India", "8839773038")
     this.state = {
        //Write function to get the data of patients with the name as appointmentsList:
-      //  patientsList:patientDetailsData.getData();
-      patientsList:[
-        {
-          "id":1,
-          "name": "Sanjay Gautam",
-          "email": "sanjaykumargautam535@gmail.com",
-          "dob": "2023-01-28T13:37:25.983Z",
-          "location": "India",
-          "mobile": "8839773038"
-       },
-       {
-        "id":2,
-        "name": "Rahul Saxena",
-        "email": "sanjaykumargautam535@gmail.com",
-        "dob": "2023-01-28T13:37:25.983Z",
-        "location": "India",
-        "mobile": "8839773038"
-     }
-      ]
+       patientsList:patientDetailsData.getData()
     };
     this.handleView = this.handleView.bind(this);
     this.handleEdit = this.handleEdit.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
   }
   handleView(id) {
-    
+    console.log('view ID=',id)
     this.props.history.push(`/viewPatient/${id}`);
   }
   handleEdit(id) {

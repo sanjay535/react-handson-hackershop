@@ -1,3 +1,4 @@
+/* Navigation style */
 .nav-color{
     color: rgba(0,0,0,0.5) !important;
     text-decoration: none !important;
@@ -5,9 +6,13 @@
     margin-left: 5px;
     margin-right: 5px;
 }
+.active{
+    color: rgba(0,0,0,0.9) !important;
+}
 .nav-color:hover{
     color: rgba(0,0,0,0.75) !important;
 }
+/* Add Patient */
 .add-patient-buttons{
     display: flex;
     justify-content: space-around;
@@ -15,9 +20,8 @@
 .add-patient-buttons:last-child{
     margin-right: 100px;
 }
-.active{
-    color: rgba(0,0,0,0.9) !important;
-}
+
+/* All Patient */
 .all-patient-background{
     width: 100%;
     display: flex;
@@ -44,4 +48,14 @@
     font-weight: 500;
     margin-left: auto;
     float: right;
+  }
+
+  /* View Patient */
+  .view-patient-row{
+    font-size: 0.9em;
+    display: flex;
+    margin-left: 5px;
+    margin-right: 0;
+    margin-bottom: 40px;
+    color: rgb(255, 255, 255, 0.8);
   }

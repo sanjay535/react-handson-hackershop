@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import NavBar from "./NavBar";
 import { patientDetailsData } from "./data.js";
+import Button from "../components/Button";
+import './Pages.css';
 class ViewPatient extends Component {
   constructor(props) {
     super(props);
@@ -17,9 +19,11 @@ class ViewPatient extends Component {
 
   render() {
     const {patient} = this.state;
+    console.log('ViewPatient state=',this.state);
     if(!patient) {
       return <h1>No patients found</h1>
     }
+    const dob=patient.dob || new Date(patient.dob);
     return (
       <div>
         <NavBar />
@@ -37,12 +41,33 @@ class ViewPatient extends Component {
         </div>
         <div className="FormCenter">
           
-            <form onSubmit={this.handleSubmit} className="FormFields">
+            <div className="FormFields">
               {/* Write code here to create fields for name, disease,appdate, slot and mobile*/}
+              <div className="view-patient-row">
+                <div>Name</div>&nbsp;&ndash;&nbsp;
+                <div>{patient.name}</div>
+              </div>
+              <div className="view-patient-row">
+                <div>E-mail</div>&nbsp;&ndash;&nbsp;
+                <div>{patient.email}</div>
+              </div>
+              <div className="view-patient-row">
+                <div>Date of Birth</div>&nbsp;&ndash;&nbsp;
+                <div>{`${dob.getDate()}/${dob.getMonth()+1}/${dob.getFullYear()}`}</div>
+              </div>
+              <div className="view-patient-row">
+                <div>Location</div>&nbsp;&ndash;&nbsp;
+                <div>{patient.location}</div>
+              </div>
+              <div className="view-patient-row">
+                <div>Mobile</div>&nbsp;&ndash;&nbsp;
+                <div>{patient.mobile}</div>
+              </div>
               <div className="FormField">
                 {/*Write code here to create close button */}
+                <Button onClick={this.handleClose} className="FormField__Button">Close</Button>
               </div>
-            </form>
+            </div>
           
         </div>
       </div>
