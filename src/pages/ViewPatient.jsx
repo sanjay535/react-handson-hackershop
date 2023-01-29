@@ -23,7 +23,7 @@ class ViewPatient extends Component {
     if(!patient) {
       return <h1>No patients found</h1>
     }
-    const dob=patient.dob || new Date(patient.dob);
+    const dob=new Date(patient.dob);
     return (
       <div>
         <NavBar />
