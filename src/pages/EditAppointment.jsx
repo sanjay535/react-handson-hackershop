@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import DatePicker from 'react-datepicker';
+import Button from "../components/Button.jsx";
 import { NavLink } from "react-router-dom";
 import NavBar from "./NavBar.jsx";
 import {appDetailsData} from "./data.js"
@@ -68,7 +70,9 @@ class EditAppointment extends Component {
     });
   }
 
-  
+  handleDateChange=(date)=>{
+    this.setState({appdate:date});
+  }
 
   render() {
     const {appointment} = this.state;
@@ -76,6 +80,7 @@ class EditAppointment extends Component {
     if(!appointment) {
     return (<h1>No appointments Found</h1>);
     }
+    const {name, appdate, slot, disease, description}=this.state;
     return (
       <div>
         <NavBar />
@@ -92,8 +97,70 @@ class EditAppointment extends Component {
           </p>
         </div>
         <div className="FormCenter">
+
           <form onSubmit={this.handleSubmit} className="FormFields">
-            {/*it should have fields like name, disease, appdate, slot, description, submit and cancel buttons */}
+            <div className="FormField">
+               {/*it should have fields like name, disease, appdate, slot, description, submit and cancel buttons */}
+              <label className="FormField__Label" htmlFor="name">
+                Name of the Patients
+              </label>
+              <select id="dropdown" className= "DropDowns" name="name" value={name} onChange={this.handleChange}>
+                
+                <option value="N/A">N/A</option>
+                <option value="Sanjay Gautam">Sanjay Gautam</option>
+                <option value="Raju Ahirwar">Raju Ahirwar</option>
+              </select>
+            </div>
+            <div className="FormField">
+              <label className="FormField__Label">Disease</label>
+              <input value={disease} onChange={this.handleChange} name="disease" className="FormField__Input" type="text" placeholder="Enter Disease" />
+            </div>
+
+            <div className="FormField">
+              <label className="FormField__Label">Date</label>
+               <DatePicker
+                placeholderText="dd/mm/yy"
+                wrapperClassName="wrapper-date-picker"
+                className="FormField__Input"
+                dateFormat="dd/MM/yyyy"
+                selected={appdate}
+                onChange={(date) =>this.handleDateChange(date)}
+               />
+            </div>
+            {/*Write code here to create date and disease labels */}
+            <div className="FormField">
+              <label className="FormField__Label" htmlFor="name">
+                Slots
+              </label>
+              <select id="dropdown" className= "DropDowns" name="slot" value={slot} onChange={this.handleChange}>
+                
+                <option value="N/A">N/A</option>
+                <option value="10-11 AM">10-11 AM</option>
+                <option value="1-2 PM">1-2 PM</option>
+                <option value="3-4 PM">3-4 PM</option>
+                <option value="6-8 PM">6-8 PM</option>
+              </select>
+    
+            </div>
+
+            <div className="FormField">
+              <label className="FormField__Label">Description</label>
+              <input value={description} onChange={this.handleChange} name="description" className="FormField__Input" type="text" placeholder="Enter Description" />
+            </div>
+           {/* Write code here to create description field,submit and cancel buttons */}
+           <div className="add-patient-buttons"> 
+            <Button 
+             type='submit'
+             className="FormField__Button"
+            >Register</Button>
+            
+             <Button
+             onClick={this.handleCancel}
+             type='button'
+             className="FormField__Button"
+            >Cancel</Button>
+            </div> 
+              
           </form>
         </div>
       </div>
