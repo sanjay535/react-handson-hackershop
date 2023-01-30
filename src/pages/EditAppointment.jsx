@@ -99,12 +99,13 @@ class EditAppointment extends Component {
         <div className="FormCenter">
 
           <form onSubmit={this.handleSubmit} className="FormFields">
+            <div>
             <div className="FormField">
                {/*it should have fields like name, disease, appdate, slot, description, submit and cancel buttons */}
               <label className="FormField__Label" htmlFor="name">
                 Name of the Patients
               </label>
-              <select id="dropdown" className= "DropDowns" name="name" value={name} onChange={this.handleChange}>
+              <select id="name" className= "DropDowns" name="name" value={name} onChange={this.handleChange}>
                 
                 <option value="N/A">N/A</option>
                 <option value="Sanjay Gautam">Sanjay Gautam</option>
@@ -113,18 +114,17 @@ class EditAppointment extends Component {
             </div>
             <div className="FormField">
               <label className="FormField__Label">Disease</label>
-              <input value={disease} onChange={this.handleChange} name="disease" className="FormField__Input" type="text" placeholder="Enter Disease" />
+              <input id="disease" value={disease} onChange={this.handleChange} name="disease" className="FormField__Input" type="text" placeholder="Enter Disease" />
             </div>
 
             <div className="FormField">
               <label className="FormField__Label">Date</label>
-               <DatePicker
-                placeholderText="dd/mm/yy"
-                wrapperClassName="wrapper-date-picker"
+               <input
+                id="appdate"
+                type="date"
                 className="FormField__Input"
-                dateFormat="dd/MM/yyyy"
-                selected={appdate}
-                onChange={(date) =>this.handleDateChange(date)}
+                value={this.state.appdate}
+                onChange={this.handleChange}
                />
             </div>
             {/*Write code here to create date and disease labels */}
@@ -132,7 +132,7 @@ class EditAppointment extends Component {
               <label className="FormField__Label" htmlFor="name">
                 Slots
               </label>
-              <select id="dropdown" className= "DropDowns" name="slot" value={slot} onChange={this.handleChange}>
+              <select id="slot" className= "DropDowns" name="slot" value={slot} onChange={this.handleChange}>
                 
                 <option value="N/A">N/A</option>
                 <option value="10-11 AM">10-11 AM</option>
@@ -145,8 +145,10 @@ class EditAppointment extends Component {
 
             <div className="FormField">
               <label className="FormField__Label">Description</label>
-              <input value={description} onChange={this.handleChange} name="description" className="FormField__Input" type="text" placeholder="Enter Description" />
+              <input id="description" value={description} onChange={this.handleChange} name="description" className="FormField__Input" type="text" placeholder="Enter Description" />
             </div>
+            <input type={"hidden"}/>
+            <input type={"hidden"}/>
            {/* Write code here to create description field,submit and cancel buttons */}
            <div className="add-patient-buttons"> 
             <Button 
@@ -160,7 +162,7 @@ class EditAppointment extends Component {
              className="FormField__Button"
             >Cancel</Button>
             </div> 
-              
+            </div>   
           </form>
         </div>
       </div>

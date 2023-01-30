@@ -98,54 +98,49 @@ class SignUpForm extends Component {
 
           <form onSubmit={this.handleSubmit} className="FormFields">
         
-            
+            <div>
             {/*Write code here to create uname, email, dob, location, mobileno labels and inputs */}
             
             <div className="FormField">
-              {/* Write code here to create Register Button */}
               <label className="FormField__Label">Username</label>
-              <input onChange={this.handleChange} name="uname" className="FormField__Input" type="text" placeholder="Enter your username" />
+              <input id="uname" onChange={this.handleChange} name="uname" className="FormField__Input" type="text" placeholder="Enter your username" />
             </div>
 
             <div className="FormField">
-              {/* Write code here to create Register Button */}
               <label className="FormField__Label">E-mail ID</label>
-              <input onChange={this.handleChange} name="email" className="FormField__Input" type="text" placeholder="Enter email" />
+              <input id="email" onChange={this.handleChange} name="email" className="FormField__Input" type="text" placeholder="Enter email" />
             </div>
 
             <div className="FormField">
-              {/* Write code here to create Register Button */}
               <label className="FormField__Label">password</label>
-              <input onChange={this.handleChange} name="password" className="FormField__Input" type="text" placeholder="Enter password" />
+              <input id="password" onChange={this.handleChange} name="password" className="FormField__Input" type="text" placeholder="Enter password" />
             </div>
 
             <div className="FormField">
-              {/* Write code here to create Register Button */}
               <label className="FormField__Label">Date of Birth</label>
-               <DatePicker
+               <input
+                type='date'
+                id="dob"
                 placeholderText="Enter date in format of dd/mm/yy"
-                wrapperClassName="wrapper-date-picker"
                 className="FormField__Input"
-                dateFormat="dd/MM/yyyy"
                 selected={this.state.dob}
-                onChange={(date) =>this.handleDateChange(date)}
+                onChange={this.handleChange}
                />
             </div>
 
             <div className="FormField">
-              {/* Write code here to create Register Button */}
               <label className="FormField__Label">Mobile No</label>
-              <input onChange={this.handleChange} name="mobileno" className="FormField__Input" type="text" placeholder="Enter Mobile Number" />
+              <input id="mobileno" onChange={this.handleChange} name="mobileno" className="FormField__Input" type="text" placeholder="Enter Mobile Number" />
             </div>
 
             <div className="FormField">
-              {/* Write code here to create Register Button */}
               <label className="FormField__Label">Location</label>
-              <input onChange={this.handleChange} name="location" className="FormField__Input" type="text" placeholder="Please enter the location" />
+              <input  id="location" onChange={this.handleChange} name="location" className="FormField__Input" type="text" placeholder="Please enter the location" />
             </div>
             <Button
              className="FormField__Button"
             >Register</Button>
+            </div>
           </form>
         </div>
       </div>

@@ -108,6 +108,7 @@ class BookAppointment extends Component {
         </div>
         <div className="FormCenter">
           <form onSubmit={this.handleSubmit} className="FormFields">
+            <div>
             <div className="FormField">
               {/*Write code here to create dropdown to list the name of patients, if no patients are avilable then it should be N/A */}
               <label className="FormField__Label" htmlFor="name">
@@ -122,18 +123,16 @@ class BookAppointment extends Component {
             </div>
             <div className="FormField">
               <label className="FormField__Label">Disease</label>
-              <input onChange={this.handleChange} name="disease" className="FormField__Input" type="text" placeholder="Enter Disease" />
+              <input id="disease" onChange={this.handleChange} name="disease" className="FormField__Input" type="text" placeholder="Enter Disease" />
             </div>
 
             <div className="FormField">
               <label className="FormField__Label">Date</label>
-               <DatePicker
-                placeholderText="dd/mm/yy"
-                wrapperClassName="wrapper-date-picker"
+               <input
+                id="appdate"
                 className="FormField__Input"
-                dateFormat="dd/MM/yyyy"
-                selected={this.state.appdate}
-                onChange={(date) =>this.handleDateChange(date)}
+                value={this.state.appdate}
+                onChange={this.handleChange}
                />
             </div>
             {/*Write code here to create date and disease labels */}
@@ -154,7 +153,7 @@ class BookAppointment extends Component {
 
             <div className="FormField">
               <label className="FormField__Label">Description</label>
-              <input onChange={this.handleChange} name="description" className="FormField__Input" type="text" placeholder="Enter Description" />
+              <input id="description" onChange={this.handleChange} name="description" className="FormField__Input" type="text" placeholder="Enter Description" />
             </div>
            {/* Write code here to create description field,submit and cancel buttons */}
            <div className="add-patient-buttons"> 
@@ -169,7 +168,7 @@ class BookAppointment extends Component {
              className="FormField__Button"
             >Cancel</Button>
             </div> 
-              
+            </div>   
           </form>
         </div>
       </div>

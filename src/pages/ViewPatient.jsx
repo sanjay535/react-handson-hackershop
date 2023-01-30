@@ -43,30 +43,24 @@ class ViewPatient extends Component {
           
             <div className="FormFields">
               {/* Write code here to create fields for name, disease,appdate, slot and mobile*/}
-              <div className="view-patient-row">
-                <div>Name</div>&nbsp;&ndash;&nbsp;
-                <div>{patient.name}</div>
+              <div id="name" className="view-patient-row">
+                <span>Name&nbsp;&ndash;&nbsp;{patient.name}</span>
               </div>
-              <div className="view-patient-row">
-                <div>E-mail</div>&nbsp;&ndash;&nbsp;
-                <div>{patient.email}</div>
+              <div id="email" className="view-patient-row">
+                <span>E-mail&nbsp;&ndash;&nbsp;{patient.email}</span>
               </div>
-              <div className="view-patient-row">
-                <div>Date of Birth</div>&nbsp;&ndash;&nbsp;
-                <div>{`${dob.getDate()}/${dob.getMonth()+1}/${dob.getFullYear()}`}</div>
+              <div id="dob" className="view-patient-row">
+                <span>Date of Birth&nbsp;&ndash;&nbsp;{`${dob.getDate()}/${dob.getMonth()+1}/${dob.getFullYear()}`}</span>
               </div>
-              <div className="view-patient-row">
-                <div>Location</div>&nbsp;&ndash;&nbsp;
-                <div>{patient.location}</div>
+              <div id="location" className="view-patient-row">
+                <span>Location&nbsp;&ndash;&nbsp;{patient.location}</span>
               </div>
-              <div className="view-patient-row">
-                <div>Mobile</div>&nbsp;&ndash;&nbsp;
-                <div>{patient.mobile}</div>
+              <div id="mobile" className="view-patient-row">
+                <span>Mobile&nbsp;&ndash;&nbsp;{patient.mobile}</span>
               </div>
-              <div className="FormField">
                 {/*Write code here to create close button */}
                 <Button onClick={this.handleClose} className="FormField__Button">Close</Button>
-              </div>
+              
             </div>
           
         </div>
