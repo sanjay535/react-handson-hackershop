@@ -116,8 +116,7 @@ class BookAppointment extends Component {
               <select id="dropdown" className= "DropDowns" name="name" onChange={this.handleChange}>
                 
                 <option value="N/A">N/A</option>
-                <option value="Sanjay Gautam">Sanjay Gautam</option>
-                <option value="Raju Ahirwar">Raju Ahirwar</option>
+                {names.map((name, i)=><option key={i} value={name}>{name}</option>)}
               </select>
             </div>
             <div className="FormField">
