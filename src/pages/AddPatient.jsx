@@ -129,6 +129,7 @@ class AddPatient extends Component {
             >Register</Button>
             
              <Button 
+             onClick={this.handleCancel}
              type='button'
              className="FormField__Button"
             >Cancel</Button>
