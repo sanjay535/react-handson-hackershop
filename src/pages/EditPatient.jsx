@@ -89,22 +89,23 @@ class EditPatient extends Component {
           </p>
         </div>
         <div className="FormCenter">
-          
+        <div> 
         <form onSubmit={this.handleSubmit} className="FormFields">
         
         <div className="FormField">
           <label className="FormField__Label">Name</label>
-          <input value={name} onChange={this.handleChange} name="name" className="FormField__Input" type="text" placeholder="Enter full name" />
+          <input id="name" value={name} onChange={this.handleChange} name="name" className="FormField__Input" type="text" placeholder="Enter full name" />
         </div>
 
         <div className="FormField">
           <label className="FormField__Label">E-mail ID</label>
-          <input value={email} onChange={this.handleChange} name="email" className="FormField__Input" type="text" placeholder="Enter email" />
+          <input id="email" value={email} onChange={this.handleChange} name="email" className="FormField__Input" type="text" placeholder="Enter email" />
         </div>
 
         <div className="FormField">
           <label className="FormField__Label">Date of Birth</label>
            <DatePicker
+            id="dob"
             placeholderText="dd/mm/yy"
             wrapperClassName="wrapper-date-picker"
             className="FormField__Input"
@@ -116,12 +117,12 @@ class EditPatient extends Component {
 
         <div className="FormField">
           <label className="FormField__Label">Location</label>
-          <input value={location} onChange={this.handleChange} name="location" className="FormField__Input" type="text" placeholder="Please enter the location" />
+          <input id="location" value={location} onChange={this.handleChange} name="location" className="FormField__Input" type="text" placeholder="Please enter the location" />
         </div>
 
         <div className="FormField">
           <label className="FormField__Label">Mobile No</label>
-          <input value={mobile} onChange={this.handleChange} name="mobile" className="FormField__Input" type="text" placeholder="Enter Mobile Number" />
+          <input id="mobile" value={mobile} onChange={this.handleChange} name="mobile" className="FormField__Input" type="text" placeholder="Enter Mobile Number" />
         </div>
         <div className="add-patient-buttons"> 
         <Button
@@ -136,6 +137,7 @@ class EditPatient extends Component {
         >Cancel</Button>
         </div> 
       </form>
+      </div> 
         </div>
       </div>
     );

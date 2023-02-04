@@ -3,7 +3,6 @@ import { shallow } from 'enzyme';
 import { configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import NavBar from '../pages/NavBar.jsx';
-import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
 
 configure({ adapter: new Adapter() });
 

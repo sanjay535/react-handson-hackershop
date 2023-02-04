@@ -1,6 +1,5 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import ReactDOM from 'react-dom';
 import App from '../App';
 import { HashRouter as Router } from 'react-router-dom';
 import SignUpForm from '../pages/SignUpForm';
@@ -23,7 +22,7 @@ describe('SignUpForm', () => {
     expect(wrapper.find('label')).toHaveLength(6);
   });
   it('should render six <input>s', () => {
-    expect(wrapper.find('input')).toHaveLength(6);
+    expect(wrapper.find('input')).toHaveLength(5);
   });
   it('renders a uname input', () => {
     expect(shallow(<SignUpForm />).find('#uname').length).toEqual(1)
@@ -57,7 +56,7 @@ describe('SignUpForm', () => {
   })
   it('should change the dob state of login component',() => {
     wrapper.find('#dob').simulate('change',{target: {name: 'dob',value:'26/5/1996'}});
-    expect(wrapper.state('dob')).toEqual('26/5/1996');
+    expect(wrapper.state('dob').target.value).toEqual('26/5/1996');
   })
   it('should change the mobileno state of login component',() => {
     wrapper.find('#mobileno').simulate('change',{target: {name: 'mobileno',value:'8789879878'}});

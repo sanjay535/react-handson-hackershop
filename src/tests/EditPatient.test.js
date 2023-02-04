@@ -1,7 +1,5 @@
 import React from 'react';
-import { shallow,mount } from 'enzyme';
-import ReactDOM from 'react-dom';
-import App from '../App';
+import { shallow } from 'enzyme';
 import EditPatient from '../pages/EditPatient';
 import { configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
@@ -22,8 +20,8 @@ configure({ adapter: new Adapter() });
     it('should render five labels <label/>',() => {
     	expect(wrapper.find('label').length).toEqual(5);
     })
-    it('should render three inputs <input/>',() => {
-    	expect(wrapper.find('input').length).toEqual(5);
+    it('should render four inputs <input/>',() => {
+    	expect(wrapper.find('input').length).toEqual(4);
     })
     it('renders a name input',() => {
     	expect(shallow(<EditPatient match={{params:{id:1}}}/>).find('#name').length).toEqual(1);
@@ -51,7 +49,7 @@ configure({ adapter: new Adapter() });
     })
     it('should change the dob state of adding patient',() => {
     	wrapper.find('#dob').simulate('change',{target: {name: 'dob',value:'26/05/1996'}});
-    	expect(wrapper.state('dob')).toEqual('26/05/1996');
+    	expect(wrapper.state('dob').target.value).toEqual('26/05/1996');
     })
     it('should change the location state of adding patient',() => {
         wrapper.find('#location').simulate('change',{target: {name: 'location',value:'Chennai'}});

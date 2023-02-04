@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import NavBar from "./NavBar.jsx";
 import "../App.css";
-import AddPatient from "./AddPatient.jsx";
 import { appDetailsData } from "./data";
 import { CONSTANTS } from "./constants.js";
 import Button from "../components/Button.jsx";

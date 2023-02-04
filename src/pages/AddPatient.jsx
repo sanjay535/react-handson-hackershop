@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { NavLink } from "react-router-dom";
 import DatePicker from "react-datepicker";
 import NavBar from "./NavBar.jsx";
 import "../App.css";
@@ -35,7 +34,7 @@ class AddPatient extends Component {
   }
 
   handleSubmit(e) {
-    e.preventDefault();
+    // e.preventDefault();
     console.log(this.state)
     if (this.canBeSubmitted()) {
       alert("Patient Added successfully");
@@ -90,20 +89,21 @@ class AddPatient extends Component {
         {/* Write code here to create fields and input labels for name,email,dob,mobileno and location  */}
         <div className="FormCenter">
           <form onSubmit={this.handleSubmit} className="FormFields">
-        
+         <div>
             <div className="FormField">
               <label className="FormField__Label">Name</label>
-              <input onChange={this.handleChange} name="name" className="FormField__Input" type="text" placeholder="Enter full name" />
+              <input id="name" onChange={this.handleChange} name="name" className="FormField__Input" type="text" placeholder="Enter full name" />
             </div>
 
             <div className="FormField">
               <label className="FormField__Label">E-mail ID</label>
-              <input onChange={this.handleChange} name="email" className="FormField__Input" type="text" placeholder="Enter email" />
+              <input id="email" onChange={this.handleChange} name="email" className="FormField__Input" type="text" placeholder="Enter email" />
             </div>
 
             <div className="FormField">
               <label className="FormField__Label">Date of Birth</label>
                <DatePicker
+                id="dob"
                 placeholderText="dd/mm/yy"
                 wrapperClassName="wrapper-date-picker"
                 className="FormField__Input"
@@ -115,12 +115,12 @@ class AddPatient extends Component {
 
             <div className="FormField">
               <label className="FormField__Label">Location</label>
-              <input onChange={this.handleChange} name="location" className="FormField__Input" type="text" placeholder="Please enter the location" />
+              <input id="location" onChange={this.handleChange} name="location" className="FormField__Input" type="text" placeholder="Please enter the location" />
             </div>
 
             <div className="FormField">
               <label className="FormField__Label">Mobile No</label>
-              <input onChange={this.handleChange} name="mobile" className="FormField__Input" type="text" placeholder="Enter Mobile Number" />
+              <input id="mobile" onChange={this.handleChange} name="mobile" className="FormField__Input" type="text" placeholder="Enter Mobile Number" />
             </div>
             <div className="add-patient-buttons"> 
             <Button 
@@ -134,6 +134,7 @@ class AddPatient extends Component {
              className="FormField__Button"
             >Cancel</Button>
             </div> 
+            </div>
           </form>
         </div>
       </div>

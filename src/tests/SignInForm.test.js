@@ -1,7 +1,5 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
-import ReactDOM from 'react-dom';
-import App from '../App';
+import { shallow } from 'enzyme';
 import SignInForm from '../pages/SignInForm';
 import { configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
@@ -23,13 +21,13 @@ describe('SignInForm', () => {
   it('should render four <label>s', () => {
     expect(wrapper.find('label')).toHaveLength(2);
   });
-  it('should render four <input>s', () => {
+  it('should render two <input>s', () => {
     expect(wrapper.find('input')).toHaveLength(2);
   });
-  it('renders a fname input', () => {
+  it('renders a email input', () => {
     expect(shallow(<SignInForm />).find('#email').length).toEqual(1)
   })
-  it('renders a lname input', () => {
+  it('renders a password input', () => {
     expect(shallow(<SignInForm />).find('#password').length).toEqual(1)
   })
   it('should change the state of the Login Component', () => {

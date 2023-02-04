@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import DatePicker from 'react-datepicker';
 import Button from "../components/Button.jsx";
-import { NavLink } from "react-router-dom";
 import NavBar from "./NavBar.jsx";
 import {appDetailsData} from "./data.js"
 
@@ -97,14 +96,14 @@ class EditAppointment extends Component {
           </p>
         </div>
         <div className="FormCenter">
-
+          <div> 
           <form onSubmit={this.handleSubmit} className="FormFields">
             <div className="FormField">
                {/*it should have fields like name, disease, appdate, slot, description, submit and cancel buttons */}
               <label className="FormField__Label" htmlFor="name">
                 Name of the Patients
               </label>
-              <select id="dropdown" className= "DropDowns" name="name" value={name} onChange={this.handleChange}>
+              <select id="name" className= "DropDowns" name="name" value={name} onChange={this.handleChange}>
                 
                 <option value="N/A">N/A</option>
                 <option value="Sanjay Gautam">Sanjay Gautam</option>
@@ -113,12 +112,13 @@ class EditAppointment extends Component {
             </div>
             <div className="FormField">
               <label className="FormField__Label">Disease</label>
-              <input value={disease} onChange={this.handleChange} name="disease" className="FormField__Input" type="text" placeholder="Enter Disease" />
+              <input id="disease" value={disease} onChange={this.handleChange} name="disease" className="FormField__Input" type="text" placeholder="Enter Disease" />
             </div>
 
             <div className="FormField">
               <label className="FormField__Label">Date</label>
                <DatePicker
+                id="appdate"
                 placeholderText="dd/mm/yy"
                 wrapperClassName="wrapper-date-picker"
                 className="FormField__Input"
@@ -132,7 +132,7 @@ class EditAppointment extends Component {
               <label className="FormField__Label" htmlFor="name">
                 Slots
               </label>
-              <select id="dropdown" className= "DropDowns" name="slot" value={slot} onChange={this.handleChange}>
+              <select id="slot" className= "DropDowns" name="slot" value={slot} onChange={this.handleChange}>
                 
                 <option value="N/A">N/A</option>
                 <option value="10-11 AM">10-11 AM</option>
@@ -145,7 +145,7 @@ class EditAppointment extends Component {
 
             <div className="FormField">
               <label className="FormField__Label">Description</label>
-              <input value={description} onChange={this.handleChange} name="description" className="FormField__Input" type="text" placeholder="Enter Description" />
+              <input id="description" value={description} onChange={this.handleChange} name="description" className="FormField__Input" type="text" placeholder="Enter Description" />
             </div>
            {/* Write code here to create description field,submit and cancel buttons */}
            <div className="add-patient-buttons"> 
@@ -162,6 +162,7 @@ class EditAppointment extends Component {
             </div> 
               
           </form>
+          </div> 
         </div>
       </div>
     );

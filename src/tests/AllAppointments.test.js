@@ -1,8 +1,5 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
-import ReactDOM from 'react-dom';
-import App from '../App';
-import BookAppointment from '../pages/BookAppointment';
+import { shallow } from 'enzyme';
 import { configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import {appDetailsData} from '../pages/data.js'

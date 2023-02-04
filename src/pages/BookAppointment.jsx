@@ -90,7 +90,7 @@ class BookAppointment extends Component {
     const names = patientDetailsData.getName();
     
     const isEnabled = this.canBeSubmitted();
-    console.log('this.slots=',this.state);
+    // console.log('this.slots=',this.state);
     return (
       <div>
         <NavBar activecomponent={CONSTANTS.BOOK_APPOINTMENT}/>
@@ -108,12 +108,13 @@ class BookAppointment extends Component {
         </div>
         <div className="FormCenter">
           <form onSubmit={this.handleSubmit} className="FormFields">
+            <div>
             <div className="FormField">
               {/*Write code here to create dropdown to list the name of patients, if no patients are avilable then it should be N/A */}
               <label className="FormField__Label" htmlFor="name">
                 Name of the Patients
               </label>
-              <select id="dropdown" className= "DropDowns" name="name" onChange={this.handleChange}>
+              <select id="name" className= "DropDowns" name="name" onChange={this.handleChange}>
                 
                 <option value="N/A">N/A</option>
                 {names.map((name, i)=><option key={i} value={name}>{name}</option>)}
@@ -121,12 +122,13 @@ class BookAppointment extends Component {
             </div>
             <div className="FormField">
               <label className="FormField__Label">Disease</label>
-              <input onChange={this.handleChange} name="disease" className="FormField__Input" type="text" placeholder="Enter Disease" />
+              <input id="disease" onChange={this.handleChange} name="disease" className="FormField__Input" type="text" placeholder="Enter Disease" />
             </div>
 
             <div className="FormField">
               <label className="FormField__Label">Date</label>
                <DatePicker
+               id="appdate"
                 placeholderText="dd/mm/yy"
                 wrapperClassName="wrapper-date-picker"
                 className="FormField__Input"
@@ -153,7 +155,7 @@ class BookAppointment extends Component {
 
             <div className="FormField">
               <label className="FormField__Label">Description</label>
-              <input onChange={this.handleChange} name="description" className="FormField__Input" type="text" placeholder="Enter Description" />
+              <input id="description" onChange={this.handleChange} name="description" className="FormField__Input" type="text" placeholder="Enter Description" />
             </div>
            {/* Write code here to create description field,submit and cancel buttons */}
            <div className="add-patient-buttons"> 
@@ -168,7 +170,7 @@ class BookAppointment extends Component {
              className="FormField__Button"
             >Cancel</Button>
             </div> 
-              
+           </div>   
           </form>
         </div>
       </div>

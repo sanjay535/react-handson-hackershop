@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { NavLink } from "react-router-dom";
 import NavBar from "./NavBar.jsx";
 import {adminDetailsData} from "./data.js"
 import "../App.css";

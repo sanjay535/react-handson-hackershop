@@ -1,7 +1,5 @@
 import React from 'react';
-import { shallow,mount } from 'enzyme';
-import ReactDOM from 'react-dom';
-import App from '../App';
+import { shallow } from 'enzyme';
 import ViewProfile from '../pages/ViewProfile';
 import { configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';

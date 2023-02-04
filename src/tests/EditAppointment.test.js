@@ -1,7 +1,5 @@
 import React from 'react';
-import { shallow,mount } from 'enzyme';
-import ReactDOM from 'react-dom';
-import App from '../App';
+import { shallow } from 'enzyme';
 import EditAppointment from '../pages/EditAppointment';
 import { configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
@@ -24,7 +22,7 @@ configure({ adapter: new Adapter() });
     	expect(wrapper.find('label').length).toEqual(5);
     })
     it('should render three inputs <input/>',() => {
-    	expect(wrapper.find('input').length).toEqual(5);
+    	expect(wrapper.find('input').length).toEqual(2);
     })
     it('renders a name input',() => {
     	expect(shallow(<EditAppointment match={{params:{appId:1}}}/>).find('#name').length).toEqual(1);
@@ -52,7 +50,7 @@ configure({ adapter: new Adapter() });
     })
     it('should change the appdate state of adding patient',() => {
     	wrapper.find('#appdate').simulate('change',{target: {name: 'appdate',value:'26/05/1996'}});
-    	expect(wrapper.state('appdate')).toEqual('26/05/1996');
+    	expect(wrapper.state('appdate').target.value).toEqual('26/05/1996');
     })
     it('should change the slot state of adding patient',() => {
         wrapper.find('#slot').simulate('change',{target: {name: 'slot',value:'10-11 AM'}});

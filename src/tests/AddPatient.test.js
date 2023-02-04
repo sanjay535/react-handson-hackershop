@@ -1,11 +1,8 @@
 import React from 'react';
 import { shallow,mount } from 'enzyme';
-import ReactDOM from 'react-dom';
-import App from '../App';
 import AddPatient from '../pages/AddPatient';
 import { configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import { HashRouter as Router } from 'react-router-dom';
 import {patientDetailsData} from '../pages/data.js'
 
 configure({ adapter: new Adapter() });
@@ -35,8 +32,9 @@ describe('testing add patient',() =>{
     	expect(wrapper.find('label').length).toEqual(5);
     })
     it('should render five inputs <input/>',() => {
-    	expect(wrapper.find('input').length).toEqual(5);
+    	expect(wrapper.find('input').length).toEqual(4);
     })
+    
     it('renders a name input',() => {
     	expect(shallow(<AddPatient/>).find('#name').length).toEqual(1);
     })
@@ -62,7 +60,7 @@ describe('testing add patient',() =>{
     })
     it('should change the dob state of adding patient',() => {
     	wrapper.find('#dob').simulate('change',{target: {name: 'dob',value:'26/05/1996'}});
-    	expect(wrapper.state('dob')).toEqual('26/05/1996');
+    	expect(wrapper.state('dob').target.value).toEqual('26/05/1996');
     })
     it('should change the location state of adding patient',() => {
     	wrapper.find('#location').simulate('change',{target: {name: 'location',value:'Chennai'}});

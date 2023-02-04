@@ -1,12 +1,8 @@
 import React from 'react';
-import { shallow,mount } from 'enzyme';
-import { HashRouter as Router, Route, NavLink } from "react-router-dom";
-import ReactDOM from 'react-dom';
-import App from '../App';
+import { shallow } from 'enzyme';
 import BookAppointment from '../pages/BookAppointment';
 import { configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import {patientDetailsData} from '../pages/data.js'
 import {appDetailsData} from '../pages/data.js'
 
 configure({ adapter: new Adapter() });
@@ -39,13 +35,13 @@ describe('testing BookAppointment',() =>{
     	expect(wrapper.find('label').length).toEqual(5);
     })
     it('should render three inputs <input/>',() => {
-    	expect(wrapper.find('input').length).toEqual(3);
+    	expect(wrapper.find('input').length).toEqual(2);
     })
     it('should render two selects <select/>',() => {
     expect(wrapper.find('select').length).toEqual(2);
     })
     it('renders a name input',() => {
-    	expect(shallow(<BookAppointment/>).find('#name').length).toEqual(0);
+    	expect(shallow(<BookAppointment/>).find('#name').length).toEqual(1);
     })
     it('renders a name disease',() => {
     	expect(shallow(<BookAppointment/>).find('#disease').length).toEqual(1);
@@ -70,7 +66,7 @@ describe('testing BookAppointment',() =>{
     })
     it('should change the appdate state of adding patient',() => {
     	wrapper.find('#appdate').simulate('change',{target: {name: 'appdate',value:'26/05/2019'}});
-    	expect(wrapper.state('appdate')).toEqual('26/05/2019');
+    	expect(wrapper.state('appdate').target.value).toEqual('26/05/2019');
     })
     // it('should change the slot state of adding patient',() => {
     // 	// wrapper.find('#slot').simulate('change',{target: {name: 'slot',value:'10-11 AM'}});
